@@ -8,6 +8,7 @@
 <body>
   <h1>Beyblade Burst Battle</h1>
 
+  <!-- Player Stats -->
   <div class="stats">
     <div>
       <h2>Red: <span id="wins1">0</span> Wins</h2>
@@ -19,11 +20,21 @@
     </div>
   </div>
 
-  <div class="arena">
-    <img id="beyblade1" class="beyblade red" src="assets/beyblade1.png" alt="Red Beyblade">
-    <img id="beyblade2" class="beyblade blue" src="assets/beyblade2.png" alt="Blue Beyblade">
+  <!-- Beyblade Selection -->
+  <div class="selection">
+    <h3>Select Your Beyblade</h3>
+    <button onclick="selectBeyblade('red')">Red Beyblade</button>
+    <button onclick="selectBeyblade('blue')">Blue Beyblade</button>
+    <button onclick="selectBeyblade('green')">Green Beyblade</button>
   </div>
 
+  <!-- Arena with Beyblades -->
+  <div class="arena">
+    <img id="beyblade1" class="beyblade" src="assets/beyblade1.png" alt="Red Beyblade">
+    <img id="beyblade2" class="beyblade" src="assets/beyblade2.png" alt="Blue Beyblade">
+  </div>
+
+  <!-- Control Buttons -->
   <div class="controls">
     <button onclick="startBattle()">Start Battle</button>
     <button onclick="resetBattle()">Reset</button>
@@ -31,6 +42,7 @@
 
   <div id="status">Ready to battle!</div>
 
+  <!-- Audio -->
   <audio id="launchSound" src="assets/launch.mp3"></audio>
   <audio id="burstSound" src="assets/burst.mp3"></audio>
 
