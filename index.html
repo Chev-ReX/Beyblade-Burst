@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Beyblade Burst Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Beyblade Burst Battle</h1>
+
+  <div class="stats">
+    <div>
+      <h2>Red: <span id="wins1">0</span> Wins</h2>
+      <progress id="health1" value="100" max="100"></progress>
+    </div>
+    <div>
+      <h2>Blue: <span id="wins2">0</span> Wins</h2>
+      <progress id="health2" value="100" max="100"></progress>
+    </div>
+  </div>
+
+  <div class="arena">
+    <img id="beyblade1" class="beyblade red" src="assets/beyblade1.png" alt="Red Beyblade">
+    <img id="beyblade2" class="beyblade blue" src="assets/beyblade2.png" alt="Blue Beyblade">
+  </div>
+
+  <div class="controls">
+    <button onclick="startBattle()">Start Battle</button>
+    <button onclick="resetBattle()">Reset</button>
+  </div>
+
+  <div id="status">Ready to battle!</div>
+
+  <audio id="launchSound" src="assets/launch.mp3"></audio>
+  <audio id="burstSound" src="assets/burst.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
