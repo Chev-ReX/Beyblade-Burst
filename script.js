@@ -5,6 +5,24 @@ let interval;
 const launchSound = document.getElementById("launchSound");
 const burstSound = document.getElementById("burstSound");
 
+let selectedBeyblade1 = 'red';
+let selectedBeyblade2 = 'blue';
+
+// Select Beyblade for Player 1
+function selectBeyblade(player) {
+  if (player === 'red') {
+    document.getElementById('beyblade1').src = "assets/beyblade1.png";
+    selectedBeyblade1 = 'red';
+  } else if (player === 'blue') {
+    document.getElementById('beyblade1').src = "assets/beyblade2.png";
+    selectedBeyblade1 = 'blue';
+  } else {
+    document.getElementById('beyblade1').src = "assets/beyblade3.png";
+    selectedBeyblade1 = 'green';
+  }
+}
+
+// Start Battle
 function startBattle() {
   stamina1 = 100;
   stamina2 = 100;
@@ -16,7 +34,6 @@ function startBattle() {
   resumeSpinning();
 
   interval = setInterval(() => {
-    // Random damage types
     let hitType = ["normal", "burst", "defense"][Math.floor(Math.random() * 3)];
     let damage1 = getDamage(hitType);
     let damage2 = getDamage(hitType);
@@ -53,6 +70,7 @@ function startBattle() {
   }, 500);
 }
 
+// Calculate damage based on attack type
 function getDamage(type) {
   switch (type) {
     case "burst": return Math.random() * 10 + 10;
@@ -61,6 +79,7 @@ function getDamage(type) {
   }
 }
 
+// Reset the game
 function resetBattle() {
   clearInterval(interval);
   stamina1 = 100;
@@ -70,17 +89,20 @@ function resetBattle() {
   resumeSpinning();
 }
 
+// Update health progress bars
 function updateHealthBars() {
   document.getElementById("health1").value = stamina1;
   document.getElementById("health2").value = stamina2;
 }
 
+// Stop spinning animation
 function stopSpinning() {
   document.getElementById("beyblade1").style.animation = "none";
   document.getElementById("beyblade2").style.animation = "none";
 }
 
+// Resume spinning animation
 function resumeSpinning() {
-  document.getElementById("beyblade1").style.animation = "spin 0.5s linear infinite";
-  document.getElementById("beyblade2").style.animation = "spin 0.5s linear infinite";
+  document.getElementById("beyblade1").style.animation = "spin 1s linear infinite";
+  document.getElementById("beyblade2").style.animation = "spin 1s linear infinite";
 }
